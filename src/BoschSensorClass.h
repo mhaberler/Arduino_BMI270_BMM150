@@ -68,12 +68,10 @@ public:
   virtual int magneticFieldAvailable();    // Number of samples in the FIFO.
   virtual float magneticFieldSampleRate(); // Sampling rate of the sensor.
 
-  float getTemperature();
-
-protected:
-  // can be modified by subclassing for finer configuration
-  virtual int8_t configure_sensor(struct bmm150_dev *dev);
-  virtual int8_t configure_sensor(struct bmi2_dev *dev);
+  protected:
+    // can be modified by subclassing for finer configuration
+    virtual int8_t configure_sensor(struct bmm150_dev *dev);
+    virtual int8_t configure_sensor(struct bmi2_dev *dev);
 
 private:
   static int8_t bmi2_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len,
